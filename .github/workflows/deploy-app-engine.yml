@@ -6,7 +6,7 @@ on:
       - main
   workflow_dispatch: 
   # add a manual workflow trigger
-  # GitHub adds "Run workflow" button in the Actions tab because of this keyword
+  # GitHub adds "Run workflow" button in the Actions tab
 
 jobs:
   build:
