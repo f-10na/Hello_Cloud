@@ -35,11 +35,10 @@ jobs:
       with:
         credentials_json: ${{ secrets.GAE_SA_KEY }}
 	#Task 3:
-        #i: create a service account and export it's json key
-        #ii: create a github action secret call GAE_SA_KEY, 
+  #i: create a service account and export it's json key
+  #ii: create a github action secret call GAE_SA_KEY, 
 	#and use the json key above as the content
         
-
     - name: Deploy to App Engine
       run: |
         gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet
