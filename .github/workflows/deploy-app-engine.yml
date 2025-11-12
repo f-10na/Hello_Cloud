@@ -26,7 +26,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Unit Tests
-      run : |
+      run: |
         python -m pytest tests/   
       #Task 2:Add a step to run the unit test
 
