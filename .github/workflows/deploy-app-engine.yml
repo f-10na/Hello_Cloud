@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: #add a manual workflow trigger
+  workflow_dispatch: 
+  #add a manual workflow trigger
   #Github adds Run workflow button in the Actions tab because of this as it is a keyword
 jobs:
   build:
@@ -32,11 +33,12 @@ jobs:
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
+        credentials_json: ${{ secrets.GAE_SA_KEY }}
 	#Task 3:
         #i: create a service account and export it's json key
         #ii: create a github action secret call GAE_SA_KEY, 
 	#and use the json key above as the content
-        credentials_json: ${{ secrets.GAE_SA_KEY }}
+        
 
     - name: Deploy to App Engine
       run: |
