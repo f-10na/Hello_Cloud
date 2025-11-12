@@ -7,5 +7,5 @@ app = Flask(__name__)
 def hello_world():
     return jsonify(message="Hello, Cloud! Welcome to COC105 Lab!")
 
-if __name__ == '__main__':
+if __name__ == '__coc105-cicd-lab/main__':
     app.run(host='0.0.0.0', port=8080)
