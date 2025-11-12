@@ -25,11 +25,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    #Task 2:Add a step to run the unit test
     - name: Run Unit Tests
       run: |
         python -m pytest tests/   
-      #Task 2:Add a step to run the unit test
-
+      
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
@@ -41,6 +41,4 @@ jobs:
         
     - name: Deploy to App Engine
       run: |
-        gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet
-  #Task 4:
-	#There is just one more thing to do
+        gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet 
