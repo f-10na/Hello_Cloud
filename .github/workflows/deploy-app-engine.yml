@@ -4,9 +4,8 @@ on:
   push:
     branches:
       - main
-  #Task 1:
-  #add a manual workflow trigger
-
+  workflow_dispatch: #add a manual workflow trigger
+  #Github adds Run workflow button in the Actions tab because of this as it is a keyword
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,21 +24,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-
-     	#Task 2:
-        #Add a step to run the unit test
+    - name: Run Unit Tests
+      run : |
+        python -m pytest tests/   
+      #Task 2:Add a step to run the unit test
 
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v2
       with:
 	#Task 3:
         #i: create a service account and export it's json key
-        #ii: create a github action scret call GAE_SA_KEY, 
+        #ii: create a github action secret call GAE_SA_KEY, 
 	#and use the json key above as the content
         credentials_json: ${{ secrets.GAE_SA_KEY }}
 
     - name: Deploy to App Engine
       run: |
-	#Task 4:
-	#There is just one more thing to do
         gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet
+  #Task 4:
+	#There is just one more thing to do
+        
