@@ -43,4 +43,3 @@ jobs:
         gcloud app deploy app.yaml --project ${{ secrets.GCP_PROJECT_ID }} --quiet
   #Task 4:
 	#There is just one more thing to do
-        
